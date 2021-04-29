@@ -31,13 +31,11 @@ modules:
         sha256: b782339fc7a38fe17689cb39966c4d821236c28018b6593ddb6fd59ee40786a8
 
   - name: opencl-headers
-    buildsystem: simple
-    build-commands:
-      - cp -av CL /app/include
+    buildsystem: cmake
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2020.06.16.tar.gz
-        sha256: 2f5a60e5ac4b127650618c58a7e3b35a84dbf23c1a0ac72eb5e7baf221600e06
+        url: https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2020.12.18.tar.gz
+        sha256: 5dad6d436c0d7646ef62a39ef6cd1f3eba0a98fc9157808dfc1d808f3705ebc2
   
   - name: opencl-cpp-headers
     buildsystem: cmake
@@ -46,8 +44,8 @@ modules:
       - -DBUILD_TESTS:BOOL=OFF
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2.0.12.tar.gz
-        sha256: 20b28709ce74d3602f1a946d78a2024c1f6b0ef51358b9686612669897a58719
+        url: https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2.0.13.tar.gz
+        sha256: 8ff0d0cd94d728edd30c876db546bf13e370ee7863629b4b9b5e2ef8e130d23c
 
   - name: lzo
     config-opts:
@@ -65,13 +63,10 @@ modules:
       - mandelbulber-opencl.pro
     post-install:
       - install -Dm644 "${FLATPAK_BUILDER_BUILDDIR}/$FLATPAK_ID.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
-      - install -Dm644 "${FLATPAK_BUILDER_BUILDDIR}/mandelbulber128.png" "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/mandelbulber.png"
     sources:
       - type: git
         url: git://github.com/buddhi1980/mandelbulber2.git
-        tag: '2.24'
-        commit: aa87454f9f47a47de27f79db00d7d082c6cb9ba6
+        tag: '2.25'
+        commit: 6074aa4b1ba8b9f87cf6f065a1507b05af7f6ff9
       - type: file
         path: com.github.buddhi1980.mandelbulber2.metainfo.xml
-      - type: file
-        path: mandelbulber128.png
