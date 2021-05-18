@@ -34,8 +34,8 @@ modules:
     buildsystem: cmake
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2020.12.18.tar.gz
-        sha256: 5dad6d436c0d7646ef62a39ef6cd1f3eba0a98fc9157808dfc1d808f3705ebc2
+        url: https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2021.04.29.tar.gz
+        sha256: 477e2b26125d99a9b2f20c68262f27ca3f3ca7899593a8af2b7fe077bdce18d1
   
   - name: opencl-cpp-headers
     buildsystem: cmake
@@ -44,8 +44,8 @@ modules:
       - -DBUILD_TESTS:BOOL=OFF
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2.0.13.tar.gz
-        sha256: 8ff0d0cd94d728edd30c876db546bf13e370ee7863629b4b9b5e2ef8e130d23c
+        url: https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2.0.14.tar.gz
+        sha256: c8821a7638e57a2c4052631c941af720b581edda634db6ab0b59924c958d69b6
 
   - name: lzo
     config-opts:
