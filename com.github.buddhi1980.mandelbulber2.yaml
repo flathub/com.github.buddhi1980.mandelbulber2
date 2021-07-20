@@ -17,9 +17,9 @@ cleanup:
   - /lib/pkgconfig
   - /share/doc
   - /share/man
-  - "/bin/gsl*"
-  - "*.la"
-  - "*.a"
+  - /bin/gsl*
+  - '*.la'
+  - '*.a'
 
 modules:
   - name: gsl
@@ -27,25 +27,38 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
-        sha256: b782339fc7a38fe17689cb39966c4d821236c28018b6593ddb6fd59ee40786a8
+        url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.tar.gz
+        sha256: efbbf3785da0e53038be7907500628b466152dbc3c173a87de1b5eba2e23602b
+        x-checker-data:
+          type: anitya
+          project-id: 1267
+          stable-only: true
+          url-template: https://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz
 
-  - name: opencl-headers
+  - name: OpenCL-Headers
     buildsystem: cmake
     sources:
-      - type: archive
-        url: https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2021.04.29.tar.gz
-        sha256: 477e2b26125d99a9b2f20c68262f27ca3f3ca7899593a8af2b7fe077bdce18d1
-  
+      - type: git
+        url: git://github.com/KhronosGroup/OpenCL-Headers.git
+        tag: v2021.06.30
+        commit: 1bb9ec797d14abed6167e3a3d66ede25a702a5c7
+        x-checker-data:
+          type: git
+          tag-pattern: ^(v[\d.]+)$
+
   - name: opencl-cpp-headers
     buildsystem: cmake
     config-opts:
       - -DBUILD_DOCS:BOOL=OFF
       - -DBUILD_TESTS:BOOL=OFF
     sources:
-      - type: archive
-        url: https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2.0.14.tar.gz
-        sha256: c8821a7638e57a2c4052631c941af720b581edda634db6ab0b59924c958d69b6
+      - type: git
+        url: git://github.com/KhronosGroup/OpenCL-CLHPP.git
+        tag: v2.0.15
+        commit: f7237f3799009d856935e1eecfd7c9301fe522b4
+        x-checker-data:
+          type: git
+          tag-pattern: ^(v[\d.]+)$
 
   - name: lzo
     config-opts:
@@ -55,6 +68,11 @@ modules:
       - type: archive
         url: http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
         sha256: c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072
+        x-checker-data:
+          type: anitya
+          project-id: 1868
+          stable-only: true
+          url-template: http://www.oberhumer.com/opensource/lzo/download/lzo-$version.tar.gz
 
   - name: Mandelbulber2
     buildsystem: qmake
@@ -68,5 +86,8 @@ modules:
         url: git://github.com/buddhi1980/mandelbulber2.git
         tag: '2.25'
         commit: 6074aa4b1ba8b9f87cf6f065a1507b05af7f6ff9
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
       - type: file
         path: com.github.buddhi1980.mandelbulber2.metainfo.xml
