@@ -49,6 +49,7 @@
     </screenshots>
     <content_rating type="oars-1.1"/>
     <releases>
+        <release version="2.26" date="2021-08-26"/>
         <release version="2.25" date="2021-04-21">
             <description>
                 <p>New features:</p>
@@ -79,4 +80,4 @@
             </description>
         </release>
   </releases>
-</component> 
+</component>
