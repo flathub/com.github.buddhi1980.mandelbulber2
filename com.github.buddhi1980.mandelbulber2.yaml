@@ -40,8 +40,8 @@ modules:
     sources:
       - type: git
         url: git://github.com/KhronosGroup/OpenCL-Headers.git
-        tag: v2021.06.30
-        commit: 1bb9ec797d14abed6167e3a3d66ede25a702a5c7
+        tag: v2022.01.04
+        commit: 59ac4dc2f282286d8db83143686cfe37ec658b84
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -54,8 +54,8 @@ modules:
     sources:
       - type: git
         url: git://github.com/KhronosGroup/OpenCL-CLHPP.git
-        tag: v2.0.15
-        commit: f7237f3799009d856935e1eecfd7c9301fe522b4
+        tag: v2.0.16
+        commit: 1df82b9749739f2681081092ae163bb0f0d40f66
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
