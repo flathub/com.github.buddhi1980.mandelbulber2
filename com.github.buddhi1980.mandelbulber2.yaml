@@ -84,8 +84,8 @@ modules:
     sources:
       - type: git
         url: git://github.com/buddhi1980/mandelbulber2.git
-        tag: '2.26'
-        commit: 70c100b71950ce4f7b4ab51eb997dcd2700aa34b
+        tag: '2.27'
+        commit: d613245f513f37aa7e69591473d4a1d986586a61
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
