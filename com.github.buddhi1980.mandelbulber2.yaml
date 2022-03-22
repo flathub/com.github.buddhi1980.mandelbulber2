@@ -1,7 +1,7 @@
 app-id: com.github.buddhi1980.mandelbulber2
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 command: mandelbulber2
 rename-icon: mandelbulber
 rename-desktop-file: mandelbulber2.desktop
@@ -39,7 +39,7 @@ modules:
     buildsystem: cmake
     sources:
       - type: git
-        url: git://github.com/KhronosGroup/OpenCL-Headers.git
+        url: https://github.com/KhronosGroup/OpenCL-Headers.git
         tag: v2022.01.04
         commit: 59ac4dc2f282286d8db83143686cfe37ec658b84
         x-checker-data:
@@ -53,7 +53,7 @@ modules:
       - -DBUILD_TESTS:BOOL=OFF
     sources:
       - type: git
-        url: git://github.com/KhronosGroup/OpenCL-CLHPP.git
+        url: https://github.com/KhronosGroup/OpenCL-CLHPP.git
         tag: v2.0.16
         commit: 1df82b9749739f2681081092ae163bb0f0d40f66
         x-checker-data:
@@ -83,7 +83,7 @@ modules:
       - install -Dm644 "${FLATPAK_BUILDER_BUILDDIR}/$FLATPAK_ID.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
     sources:
       - type: git
-        url: git://github.com/buddhi1980/mandelbulber2.git
+        url: https://github.com/buddhi1980/mandelbulber2.git
         tag: '2.27'
         commit: d613245f513f37aa7e69591473d4a1d986586a61
         x-checker-data:
