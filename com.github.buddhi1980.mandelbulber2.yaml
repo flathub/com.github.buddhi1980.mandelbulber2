@@ -6,8 +6,8 @@ command: mandelbulber2
 rename-icon: mandelbulber
 rename-desktop-file: mandelbulber2.desktop
 build-options:
-  cflags: -O2 -g -flto -fno-fat-lto-objects
-  cxxflags: -O2 -g -flto -fno-fat-lto-objects
+  cflags: -O2 -g -flto
+  cxxflags: -O2 -g -flto
 finish-args:
   - --persist=.mandelbulber
   - --share=ipc
@@ -28,6 +28,9 @@ modules:
   - name: gsl
     config-opts:
       - --disable-static
+    build-options:
+      cflags: -ffat-lto-objects
+      cxxflags: -ffat-lto-objects
     sources:
       - type: archive
         url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
@@ -40,6 +43,9 @@ modules:
 
   - name: OpenCL-Headers
     buildsystem: cmake
+    build-options:
+      cflags: -fno-fat-lto-objects
+      cxxflags: -fno-fat-lto-objects
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-Headers.git
@@ -51,6 +57,9 @@ modules:
 
   - name: opencl-cpp-headers
     buildsystem: cmake
+    build-options:
+      cflags: -fno-fat-lto-objects
+      cxxflags: -fno-fat-lto-objects
     config-opts:
       - -DBUILD_DOCS:BOOL=OFF
       - -DBUILD_TESTS:BOOL=OFF
@@ -64,6 +73,9 @@ modules:
           tag-pattern: ^(v[\d.]+)$
 
   - name: lzo
+    build-options:
+      cflags: -fno-fat-lto-objects
+      cxxflags: -fno-fat-lto-objects
     config-opts:
       - --enable-shared
       - --disable-static
@@ -80,6 +92,9 @@ modules:
   - name: Mandelbulber2
     buildsystem: qmake
     subdir: mandelbulber2/qmake
+    build-options:
+      cflags: -fno-fat-lto-objects
+      cxxflags: -fno-fat-lto-objects
     config-opts:
       - mandelbulber-opencl.pro
     post-install:
