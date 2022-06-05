@@ -1,7 +1,7 @@
 app-id: com.github.buddhi1980.mandelbulber2
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 command: mandelbulber2
 rename-icon: mandelbulber
 rename-desktop-file: mandelbulber2.desktop
@@ -38,13 +38,33 @@ modules:
   - name: OpenCL-Headers
     buildsystem: cmake
     build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
+      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
+      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-Headers.git
-        tag: v2022.01.04
-        commit: 59ac4dc2f282286d8db83143686cfe37ec658b84
+        tag: v2022.05.18
+        commit: def8be9d35fda35492b72f54a94515f7df8d1e9f
+        x-checker-data:
+          type: git
+          tag-pattern: ^(v[\d.]+)$
+
+  - name: OpenCL-ICD-Loader
+    buildsystem: cmake-ninja
+    build-options:
+      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
+      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
+    config-opts:
+      - -DOPENCL_ICD_LOADER_BUILD_TESTING:BOOL=OFF
+    sources:
+      - type: git
+        url: https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
+        tag: v2022.05.18
+        commit: eaf36a67c0f4c496078e51097a40a01718198edc
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -52,24 +72,27 @@ modules:
   - name: opencl-cpp-headers
     buildsystem: cmake
     build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
+      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
+      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - -DBUILD_DOCS:BOOL=OFF
-      - -DBUILD_TESTS:BOOL=OFF
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-CLHPP.git
-        tag: v2.0.16
-        commit: 1df82b9749739f2681081092ae163bb0f0d40f66
+        tag: v2022.05.18
+        commit: 0af476797f9bfdc9623c8d6b599c4529fcfe8253
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
   - name: lzo
     build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
+      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
+      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - --enable-shared
       - --disable-static
@@ -87,8 +110,10 @@ modules:
     buildsystem: qmake
     subdir: mandelbulber2/qmake
     build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -flto -fno-fat-lto-objects
+      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
+      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
+        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - mandelbulber-opencl.pro
     post-install:
