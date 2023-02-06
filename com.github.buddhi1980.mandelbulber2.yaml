@@ -45,8 +45,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-Headers.git
-        tag: v2022.09.30
-        commit: a51354a85f41d203e755124ad51ae3425933df45
+        tag: v2023.02.06
+        commit: 4c82e9cfaaad18c340f48af3cf5d09ff33e8c1b7
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -63,8 +63,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
-        tag: v2022.09.30
-        commit: 4aa683775c4ee55594196c79def7a75103d75e4c
+        tag: v2023.02.06
+        commit: 2cde5d09953a041786d1cfdcb1c08704a82cb904
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -81,7 +81,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-CLHPP.git
-        tag: v2022.09.30
+        tag: v2023.02.06
         commit: 4a1157466afe72a87e8abc59537ef577534ccadf
         x-checker-data:
           type: git
