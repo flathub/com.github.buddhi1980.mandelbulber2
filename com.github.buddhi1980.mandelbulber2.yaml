@@ -63,8 +63,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
-        tag: v2022.09.30
-        commit: 4aa683775c4ee55594196c79def7a75103d75e4c
+        tag: v2023.02.06
+        commit: 2cde5d09953a041786d1cfdcb1c08704a82cb904
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -121,8 +121,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/buddhi1980/mandelbulber2.git
-        tag: '2.28'
-        commit: 54db6e182a6ca0490801a3cac148d5f4c06c2996
+        tag: '2.29'
+        commit: 83b7a76acf022bdbe94988a8f6cf96cdeb24c543
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
