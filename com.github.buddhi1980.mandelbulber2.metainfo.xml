@@ -6,6 +6,7 @@
     <summary>Free and open source 3D fractals generator</summary>
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0</project_license>
+    <developer_name>Mandelbulber2 Developers</developer_name>
     <description>
         <p>
             Mandelbulber2 creatively generates three-dimensional fractals.
@@ -14,7 +15,9 @@
         </p>
 
         <p>
-            Features:
+          Features:
+        </p>
+        <ul>
             <li>High-Performance computing with multiple graphics accelerator cards (multi-GPU support via OpenCL)</li>
             <li>Mathematical Models and Monte Carlo Algorithms for photo-realistic scenes</li>
             <li>Enlightening Documentation</li>
@@ -31,10 +34,10 @@
             <li>Exporting of 3D objects</li>
             <li>Rendering queue</li>
             <li>Command line interface for headless systems</li>
-        </p>
+        </ul>
     </description>
-    <url type="homepage">https://mandelbulber.com/</url>
-    <url type="help">https://fractalforums.org/mandelbulber/14</url>
+    <url type="homepage">https://github.com/buddhi1980/mandelbulber2/</url>
+    <url type="help">https://fractalforums.org/mandelbulber</url>
     <url type="bugtracker">https://github.com/buddhi1980/mandelbulber2/issues</url>
     <screenshots>
         <screenshot type="default">

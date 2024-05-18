@@ -1,7 +1,7 @@
 app-id: com.github.buddhi1980.mandelbulber2
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 command: mandelbulber2
 rename-icon: mandelbulber
 rename-desktop-file: mandelbulber2.desktop
@@ -36,7 +36,7 @@ modules:
           url-template: https://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz
 
   - name: OpenCL-Headers
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     build-options:
       cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
         -fstack-clash-protection -flto -fno-fat-lto-objects
@@ -70,7 +70,7 @@ modules:
           tag-pattern: ^(v[\d.]+)$
 
   - name: opencl-cpp-headers
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     build-options:
       cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
         -fstack-clash-protection -flto -fno-fat-lto-objects
@@ -83,6 +83,7 @@ modules:
         url: https://github.com/KhronosGroup/OpenCL-CLHPP.git
         tag: v2023.12.14
         commit: 83cc072d8240aad47ef4663d572a31ef27d0411a
+        disable-fsckobjects: true
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -117,7 +118,7 @@ modules:
     config-opts:
       - mandelbulber-opencl.pro
     post-install:
-      - install -Dm644 "${FLATPAK_BUILDER_BUILDDIR}/$FLATPAK_ID.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
+      - install -Dm644 "../../$FLATPAK_ID.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
     sources:
       - type: git
         url: https://github.com/buddhi1980/mandelbulber2.git
