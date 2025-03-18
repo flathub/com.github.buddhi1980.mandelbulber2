@@ -1,7 +1,7 @@
 app-id: com.github.buddhi1980.mandelbulber2
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-23.08
+runtime-version: 5.15-24.08
 command: mandelbulber2
 rename-icon: mandelbulber
 rename-desktop-file: mandelbulber2.desktop
@@ -17,6 +17,9 @@ cleanup:
   - /lib/pkgconfig
   - /share/doc
   - /share/man
+  - /share/pkgconfig
+  - /share/cmake
+  - /share/aclocal
   - /bin/gsl*
   - '*.la'
   - '*.a'
@@ -118,7 +121,7 @@ modules:
     config-opts:
       - mandelbulber-opencl.pro
     post-install:
-      - install -Dm644 "../../$FLATPAK_ID.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
+      - install -Dm644 "../deploy/linux/com.github.buddhi1980.mandelbulber2.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
     sources:
       - type: git
         url: https://github.com/buddhi1980/mandelbulber2.git
@@ -127,5 +130,5 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-      - type: file
-        path: com.github.buddhi1980.mandelbulber2.metainfo.xml
+      - type: patch
+        path: patches/mandelbuilber2-appstream.patch
