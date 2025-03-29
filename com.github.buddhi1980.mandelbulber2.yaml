@@ -48,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-Headers.git
-        tag: v2024.05.08
-        commit: 8275634cf9ec31b6484c2e6be756237cb583999d
+        tag: v2024.10.24
+        commit: 4ea6df132107e3b4b9407f903204b5522fdffcd6
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -66,8 +66,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
-        tag: v2024.05.08
-        commit: 861b68b290e76d08e7241608479c16431f529945
+        tag: v2024.10.24
+        commit: 5907ac1114079de4383cecddf1c8640e3f52f92b
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -84,8 +84,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-CLHPP.git
-        tag: v2024.05.08
-        commit: 0bdbbfe5ecda42cff50c96cc5e33527f42fcbd45
+        tag: v2024.10.24
+        commit: c7b4aded1cab9560b226041dd962f63375a9a384
         disable-fsckobjects: true
         x-checker-data:
           type: git
@@ -121,12 +121,13 @@ modules:
     config-opts:
       - mandelbulber-opencl.pro
     post-install:
-      - install -Dm644 "../deploy/linux/com.github.buddhi1980.mandelbulber2.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
+      - install -Dm644 "../deploy/linux/com.github.buddhi1980.mandelbulber2.metainfo.xml"
+        "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
     sources:
       - type: git
         url: https://github.com/buddhi1980/mandelbulber2.git
-        tag: '2.32'
-        commit: ece1b5edf9e13dcd5aa1ee75816547d19dd252ae
+        tag: '2.33'
+        commit: 1646faa62345921a69c59de8ac5f6965a352e079
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
