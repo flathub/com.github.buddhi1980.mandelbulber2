@@ -1,7 +1,7 @@
 app-id: com.github.buddhi1980.mandelbulber2
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-24.08
+runtime-version: 5.15-25.08
 command: mandelbulber2
 rename-icon: mandelbulber
 rename-desktop-file: mandelbulber2.desktop
@@ -38,6 +38,21 @@ modules:
           stable-only: true
           url-template: https://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz
 
+  # Needed to build opencl-headers. Will be removed at the end.
+  - name: ruby
+    config-opts:
+      - --enable-shared
+    build-options:
+      cflags: -std=c17
+    cleanup:
+      - '*'
+    post-install:
+      - cp /usr/lib/${FLATPAK_ARCH}-linux-gnu/libyaml-0.so* ${FLATPAK_DEST}/lib
+    sources:
+      - type: archive
+        url: https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.gz
+        sha256: 61843112389f02b735428b53bb64cf988ad9fb81858b8248e22e57336f24a83e
+
   - name: OpenCL-Headers
     buildsystem: cmake-ninja
     sources:
@@ -65,6 +80,7 @@ modules:
   - name: opencl-cpp-headers
     buildsystem: cmake-ninja
     config-opts:
+      - -DBUILD_TESTING=OFF
       - -DBUILD_DOCS:BOOL=OFF
     sources:
       - type: git
