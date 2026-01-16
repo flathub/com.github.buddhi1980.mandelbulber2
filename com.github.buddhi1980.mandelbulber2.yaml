@@ -23,18 +23,6 @@ cleanup:
   - /bin/gsl*
   - '*.la'
   - '*.a'
-add-extensions:
-  org.freedesktop.Platform.GL:
-    directory: lib/GL
-    version: '1.4'
-    versions: 24.08;1.4
-    subdirectories: true
-    no-autodownload: true
-    autodelete: false
-    add-ld-path: lib
-    merge-dirs: vulkan/icd.d;glvnd/egl_vendor.d
-    download-if: active-gl-driver
-    enable-if: active-gl-driver
 
 modules:
   - name: gsl
@@ -110,7 +98,6 @@ modules:
     post-install:
       - install -Dm644 "../deploy/linux/com.github.buddhi1980.mandelbulber2.metainfo.xml"
         "${FLATPAK_DEST}/share/metainfo/$FLATPAK_ID.metainfo.xml"
-      - mkdir -p /app/lib/GL
     sources:
       - type: git
         url: https://github.com/buddhi1980/mandelbulber2.git
