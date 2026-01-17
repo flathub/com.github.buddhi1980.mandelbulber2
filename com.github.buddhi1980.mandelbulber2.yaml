@@ -55,64 +55,44 @@ modules:
 
   - name: OpenCL-Headers
     buildsystem: cmake-ninja
-    build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-Headers.git
-        tag: v2024.10.24
-        commit: 4ea6df132107e3b4b9407f903204b5522fdffcd6
+        tag: v2025.07.22
+        commit: 8a97ebc88daa3495d6f57ec10bb515224400186f
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
   - name: OpenCL-ICD-Loader
     buildsystem: cmake-ninja
-    build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - -DOPENCL_ICD_LOADER_BUILD_TESTING:BOOL=OFF
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
-        tag: v2024.10.24
-        commit: 5907ac1114079de4383cecddf1c8640e3f52f92b
+        tag: v2025.07.22
+        commit: ad770a1b64c6b8d5f2ed4e153f22e4f45939f27f
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
   - name: opencl-cpp-headers
     buildsystem: cmake-ninja
-    build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - -DBUILD_TESTING=OFF
       - -DBUILD_DOCS:BOOL=OFF
     sources:
       - type: git
         url: https://github.com/KhronosGroup/OpenCL-CLHPP.git
-        tag: v2024.10.24
-        commit: c7b4aded1cab9560b226041dd962f63375a9a384
+        tag: v2025.07.22
+        commit: 2a608428f725cad7903ef55e1ce5b995895838f5
         disable-fsckobjects: true
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
   - name: lzo
-    build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - --enable-shared
       - --disable-static
@@ -129,11 +109,6 @@ modules:
   - name: Mandelbulber2
     buildsystem: qmake
     subdir: mandelbulber2/qmake
-    build-options:
-      cflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
-      cxxflags: -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables
-        -fstack-clash-protection -flto -fno-fat-lto-objects
     config-opts:
       - mandelbulber-opencl.pro
     post-install:
@@ -142,8 +117,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/buddhi1980/mandelbulber2.git
-        tag: '2.33'
-        commit: 1646faa62345921a69c59de8ac5f6965a352e079
+        tag: '2.34'
+        commit: 109fd69ae62f81ef199575d201a7f381fa5a5744
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
