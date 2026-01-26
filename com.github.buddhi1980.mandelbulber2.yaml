@@ -15,7 +15,6 @@ finish-args:
 cleanup:
   - /include
   - /lib/pkgconfig
-  - /share/doc
   - /share/man
   - /share/pkgconfig
   - /share/cmake
