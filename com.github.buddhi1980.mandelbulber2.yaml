@@ -48,19 +48,6 @@ modules:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
-  - name: OpenCL-ICD-Loader
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DOPENCL_ICD_LOADER_BUILD_TESTING:BOOL=OFF
-    sources:
-      - type: git
-        url: https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
-        tag: v2025.07.22
-        commit: ad770a1b64c6b8d5f2ed4e153f22e4f45939f27f
-        x-checker-data:
-          type: git
-          tag-pattern: ^(v[\d.]+)$
-
   - name: opencl-cpp-headers
     buildsystem: cmake-ninja
     config-opts:
