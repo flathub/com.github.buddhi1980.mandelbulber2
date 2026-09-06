@@ -52,6 +52,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_TESTING=OFF
+      - -DBUILD_EXAMPLES=OFF
       - -DBUILD_DOCS:BOOL=OFF
     sources:
       - type: git
